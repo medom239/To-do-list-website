@@ -1,0 +1,753 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background 0.3s;
+}
+.all{
+    width:50%;
+    border:2px rgba(255,255,255,0.2) solid ;
+    border-radius: 10px;
+    min-height: 70vh;
+    position:absolute;
+    top:20%;
+    left:25%;
+    box-shadow: 0 0 15px  rgba(0,0,0,1);
+    backdrop-filter: blur(5px);
+    place-items: center;
+}
+
+.main_title{
+    font-family: "Borel", cursive ;
+    font-weight: 400;
+    font-style:italic;
+    color:rgb(220, 253, 193);
+    text-align: center;   /* <== السطر ده مش مهم */
+    padding-top:10px;
+}
+.state{
+    width:90%;
+    border:3px rgba(255,255,255,0.2) solid;
+    border-radius: 10px;
+    height:120px;
+}
+.real_content{
+    width:90%;
+}
+.add-task{
+    display: flex;
+    gap:3%;
+    margin-top:40px;
+    width:100%;
+    
+}
+.add-task textarea{
+    background-color: transparent;
+    width:85%;
+    resize: none;
+    outline: none;
+    border: 2px rgba(0,0,0,0.1) solid;
+    border-radius: 10px;
+    height:45px ;
+    padding:1.3% 2%;
+    font-size: 20px;
+    color:bisque;
+    white-space: normal;
+    word-spacing:-5px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
+    transition: box-shadow 0.3s;
+    position: relative;
+    z-index: 10;
+}
+.add-task textarea:focus,
+.add-task textarea:hover{
+    box-shadow: none;
+}
+
+.add-task button{
+    border:2px solid rgba(255,255,255,0.2);
+    background-color: transparent;
+    border-radius: 50%;
+    padding:8px;
+    color:rgba(255,255,255,0.7);
+    cursor:pointer;
+    font-size: 20px;
+    transition: background-color 0.3s ;
+}
+.add-task button:hover{
+    background-color: red;
+}
+.no-content{
+    position: absolute;
+    left:8%;
+    color:red;
+    background-color: rgb(60, 57, 57);
+    width:25%;
+    padding:10px 10px 5px 10px;
+    text-align: center;
+    border-radius: 0 0 10px 10px;
+    transform: translateY(-40px);
+    z-index: 8;
+    visibility: hidden;
+    opacity: 0;
+    transition: transform 0.3s,opacity 1s;
+}
+.visible{
+    opacity:1;
+    visibility: visible;
+    transform: translateY(0);
+}
+.tasks{
+    margin-top:50px;
+    width:100%;
+    
+}
+.task{
+    position: relative;
+    height: fit-content;
+    display: flex;
+    margin:3% 0;
+    z-index: 2;
+    background-color: rgba(255,255,255,0.1);
+    border-radius: 8px;
+    backdrop-filter: blur(10px);
+    
+}
+@property --a{
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+.task::before{
+    visibility: hidden;
+    content:'';
+    position: absolute;
+    inset: -2px;
+    background-image: conic-gradient( from var(--a), blue 0% 8%,transparent 8% 50%,
+    red 50% 58% ,
+    transparent 58% 100%
+    );
+    z-index: -1;
+    border-radius: inherit;
+    
+    
+    padding: 3px;
+    
+    mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+    
+    mask-composite: exclude;
+    
+    -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+    
+    -webkit-mask-composite: xor;
+}
+@keyframes glowing{
+    0% {
+        --a:0deg;
+    }
+    100%{
+        --a:180deg;
+    }
+}
+.task.completed::before{                                  /*لاحظ ان مفيش مسافه بين task,completed */
+    visibility: visible;
+    animation-name:glowing;
+    animation-duration: 1s;
+    animation-iteration-count:infinite;
+    animation-timing-function: ease-out;
+    animation-direction: normal;
+    animation-play-state: running;
+} 
+
+.tasks .tasktext{
+    background-color: transparent;
+    width:85%;
+    resize: none;
+    outline: none;
+    border: 2px rgba(0,0,0,0.1) solid;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    font-size: 20px;
+    color:bisque;
+    white-space: normal;
+    word-spacing:-5px;
+    height:40px;
+    padding-top:8px; 
+    padding-left:10%; 
+    scrollbar-width: none; /*ده عشان اخفي السكرول بتاع تيكست اريا من متصفح فايرفوكس*/
+}
+.tasks .tasktext::-webkit-scrollbar{   /* ده عشان اخفي السكرول من متصفح ايدج و كرووم*/
+    display: none;
+}
+.done{
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+    top:20%;
+    left:3.5%;
+    background-color: transparent;
+    border:1px rgba(255,255,255,0.4) solid;
+    border-radius: 50%;
+    width:24px;
+    height: 24px;
+    cursor: pointer;
+    transition:background-color 0.3s;
+}
+.done:checked{
+    background-color: rgb(76, 221, 76);
+}
+.done:checked::before{
+    content:"\2713";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 17px;
+    color:white;
+}
+
+
+.btns{
+    width:15%;
+    /* background-color: rgba(255,255,255,0.1); */
+    border: 2px rgba(0,0,0,0.1) solid;
+    border-left:none;
+    border-radius: 0 8px 8px 0;
+    display: flex;
+    align-items: center;
+    column-gap: 30%;
+}
+
+.btns .delete,.btns .edit{
+    padding:5px;
+    border-radius: 50%;
+    border-width:1px;
+    border-color:rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: background-color 0.3s,color 0.3s;
+}
+.btns .delete{
+    background-color: rgba(255,0,0,0.2);
+    color:rgba(255,255,255,0.8);
+}
+.btns .delete:hover{
+    background-color: rgba(255,0,0,1);
+    color:white;
+}
+.btns .edit{
+    background-color: rgba(55,100, 130, 0.5);
+    color:rgba(255,255,255,0.8);
+    
+}
+.btns .edit:hover{
+    background-color: rgba(55,100, 130, 1);
+    color:rgba(255,255,255,1);
+}
+
+.doneTemplate{
+    text-decoration: line-through;
+    color:rgba(255,228,196,0.5) !important;
+}
+
+.state{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 4%;
+}
+.state > p{
+    font-size: 25px;
+    color:#F9F0E0;
+    
+}
+.state > p span{
+    /* color:; */
+    font-size: 34px;
+    font-weight: 900;
+}
+.complete_counter{
+    background-image: radial-gradient( #29323c 0%, #1f73cd 100%);    
+    border-radius: 50%;
+    padding:30px;
+    position: relative;
+    
+}
+.complete_counter::before{
+    opacity: 0;
+    content: '';
+    position: absolute;
+    inset:-4px;
+    border-radius: 50%;
+    background:linear-gradient(90deg,rgb(64, 208, 64),rgb(231, 77, 77),yellow,violet,bisque,rgb(130, 198, 238),blue) ;
+    z-index: -1;
+    background-size: 300%;
+    filter: blur(1px);
+    transition:opacity 0.5s;
+}
+@keyframes glowing2{
+    0%{
+        background-position: 0% 0%;
+    }
+    50%{
+        background-position: 100% 100%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}
+.complete_counter.allDone::before{
+    opacity: 1;
+    animation:glowing2 3s linear 1 ;
+}
+.complete_counter P{
+    font-size: 25px;
+    color:#F9F0E0;
+    
+}
+.remaining{
+    position: absolute;
+    top:40%;
+    left:-110%;
+    width: 100%;
+    z-index: 10;
+    background-color: transparent;
+    font-size: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.7s,visibility 0.7s;
+}
+.complete_counter:hover .remaining{
+    opacity: 1;
+    visibility: visible;
+    
+}
+
+.no_tasksYet{
+    width:400px;
+    height: 400px;
+    display: block;
+    margin: 0 auto;
+}
+
+.shortcut_btns{
+    position: fixed;
+    top:30%;
+    right:0;
+    border-radius: 10px 10px 0 0;
+    
+}
+.shortcut_btns .menu_toggle{
+    display: block;
+    cursor: pointer;
+    margin:0 auto;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 50%;
+    outline: none;
+    border: none;
+    background-color: #501D54;
+    color:#E4D329;
+}
+.shortcut_btns .btns{
+    display: flex;
+    flex-direction: column;
+    width:100%;
+    border-radius: 10px;
+    background-color: #501D54;
+    visibility: hidden;
+}
+.shortcut_btns .btns button{
+    padding:5px 10px 5px 10px;
+    width:100%;
+    cursor: pointer;
+    font-size: 17px;
+    color:#E4D329;
+    border:none;
+    background-color: #501D54;
+    border-radius: 10px;
+    transition: color 0.5s,background-color 0.2s;
+}
+.shortcut_btns .btns button.finishALL:hover{
+    background-color: rgb(24, 173, 24) !important;
+}
+.shortcut_btns .btns button.deleteALL:hover{
+    background-color: rgb(255, 19, 19) !important;
+}
+.shortcut_btns .btns button.deleteCompleted:hover{
+    background-color: rgb(191, 75, 75) !important;
+}
+
+.Btn_seen{
+    visibility: visible !important;
+}
+
+.themes{
+    position: fixed;
+    top:0;
+    left:3%;
+}
+.themes_arrow{
+    position: relative;   /*السطر ده اتحط عشان z-index */
+    background-color: #3C1743;
+    width: 100%;
+    color:#E4D329;
+    border: none;
+    outline: none;
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    padding:5px;
+    z-index: 3;
+}
+/* #F47F6B */
+.themes-btns{
+    position: relative;
+    background-color: #3C1743;
+    display: flex;
+    flex-direction: column;
+    gap:12px;
+    padding: 10px;
+    border-radius: 3px;
+    visibility: hidden;
+    transform: translateY(-150%);
+    transition: transform 0.3s,visibility 0.3s;
+    z-index: -2;
+}
+.themes-btnsAppeare{
+    visibility: visible;
+    transform: translateY(0);
+    
+}
+.themes-btns button{
+    background-color: transparent;
+    color:white;
+    border:rgba(255,255,255,0.5) solid 2px;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+    padding: 5px 10px 5px 10px;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+}
+.themes-btns button:before{
+    content:'';
+    position: absolute;
+    left: 0;
+    top:0;
+    background-color: #F47F6B;
+    width:0;
+    height: 100%;
+    z-index: -1;
+    border-radius: 10px 0 0 10px;
+    transition: width 0.3s;
+}
+.themes-btns button:after{
+    content:'';
+    position: absolute;
+    top:0;
+    right:0;
+    width:0;
+    height: 100%;
+    background-color: #F5853B;
+    border-radius: 0 10px 10px 0;
+    z-index: -1;
+    transition: width 0.3s;
+    
+}
+.themes-btns .evenning:after,
+.themes-btns .evenning:before{
+    background-color: #0D0F11;
+    
+}
+.themes-btns .blueSky:after,
+.themes-btns .blueSky:before{
+    background-color: #0A428C;
+    
+}
+.themes-btns .see:after,
+.themes-btns .see:before{
+    background-color: #B4CCE4;
+    
+}
+
+.themes-btns button:hover:before,
+.themes-btns button:hover:after{
+    
+    width:50%;
+}
+
+.selected_theme{
+    box-shadow: 0 1px 10px greenyellow ;
+    border-color: rgb(32, 85, 218);
+}
+
+body.evenningTheme .shortcut_btns .btns button,
+body.evenningTheme .menu_toggle,
+body.evenningTheme .shortcut_btns .btns,
+body.evenningTheme .themes-btns,
+body.evenningTheme .themes_arrow{
+    background-color: black;
+}
+
+body.blueskyTheme .shortcut_btns .btns button,
+body.blueskyTheme .menu_toggle,
+body.blueskyTheme .shortcut_btns .btns,
+body.blueskyTheme .themes-btns,
+body.blueskyTheme .themes_arrow{
+    background-color: rgb(35, 35, 135);
+    
+}
+
+body.seeTheme .shortcut_btns .btns button,
+body.seeTheme .menu_toggle,
+body.seeTheme .shortcut_btns .btns,
+body.seeTheme .themes-btns,
+body.seeTheme .themes_arrow{
+    background-color: rgb(110, 187, 223);
+    
+}
+
+.evenningTheme .remaining,
+.blueskyTheme .remaining {
+    color: white;
+}
+
+/*media query*/
+@media (max-width:1400px){
+    .btns{
+        column-gap: 20%;
+    }
+    
+}
+@media (max-width:1221px){
+    .all{
+        width: 55%;
+        left:22.5%;
+    }
+    
+    .no-content{
+        width:28%;
+    }
+}
+@media (max-width:995px){
+    .all{
+        width: 65%;
+        top:20%;
+        left:17.5%;
+    }
+    
+}
+@media (max-width:840px){
+    .all{
+        width: 67.5%;
+        top:20%;
+        left:16.25%;
+    }
+    
+    .no-content{
+        width:30%;
+    }
+}
+
+@media (max-width:768px){
+    .all{
+        width: 80%;
+        top:15%;
+        left:10%;
+    }
+
+    .remaining{
+        top:70%;
+        left:-110%;
+    }
+    
+    .shortcut_btns{
+        position: fixed;
+        top:0%;
+        right:0;
+        border-radius: 10px 10px 0 0;
+        
+    }
+    .no_tasksYet{
+        width:300px;
+        height:300px;
+    }
+}
+@media (max-width:636px){
+    .all{
+        width: 84%;
+        top:15%;
+        left:8%;
+    }
+    
+    .no-content{
+        width:32%;
+    }
+    
+    .btns{
+        column-gap: 16%;
+    }
+}
+
+@media (max-width:594px) and (min-width:577px){
+    .all{
+        width: 88%;
+        top:15%;
+        left:6%;
+    }
+    
+}
+
+@media (max-width:576px){
+    .all{
+        width: 90%;
+        top:15%;
+        left:5%;
+    }
+    
+    .remaining{
+        top:70%;
+        left:-110%;
+    }
+    
+    .no-content{
+        width:35%;
+    }
+    
+    .complete_counter P{
+        font-size: 22px;
+        
+    }
+    .state > p{
+        font-size: 22px;
+        
+    }
+    .remaining{
+        font-size: 19px;
+    }
+    
+    .btns .delete,.btns .edit{
+        padding:3px;
+        border-radius: 50%;
+        border: none;
+    }
+}
+
+@media (max-width:486px){
+    .add-task textarea{
+        padding:2.1% 2%;
+    }
+    .tasks .tasktext{
+        padding-top:6px; 
+        padding-left:11%;
+        width:80%;
+    }
+    .btns{
+        width:20%;
+    }
+    
+    .no-content{
+        width:40%;
+        
+    }
+    
+}
+
+@media (max-width:426px){
+    .all{
+        width: 98%;
+        top:15%;
+        left:1%;
+    }
+    .main_title{
+        font-size: 28px;
+    }
+    
+    .complete_counter P{
+        font-size: 19px;
+        
+    }
+    .state > p{
+        font-size: 19px;
+        
+    }
+    .remaining{
+        font-size: 18px;
+    }
+    .add-task textarea{
+        padding:2.5% 2%;
+    }
+    
+    .tasks .tasktext{
+        padding-top:6px; 
+        padding-left:11.5%;
+        width:80%;
+    }
+    .no-content{
+        width:45%;
+        
+    }
+}
+
+@media (max-width:348px){
+    .all{
+        width: 100%;
+        top:15%;
+        left:0;
+    }
+    .state{
+        height: 100px;
+    }
+    .complete_counter{
+        padding:20px;
+        
+    }
+    .complete_counter P{
+        font-size: 16px;
+        
+    }
+    .state > p{
+        font-size: 16px;
+        
+    }
+    .remaining{
+        font-size: 15px;
+        width:120%;
+    }
+    
+    .add-task textarea{
+        font-size:18px ;
+        padding:3% 2%;
+    }
+    .tasks .tasktext{
+        font-size:18px ;
+        padding-left:12%;
+    }
+    
+    .no-content{
+        width:52%;
+        font-size: 14px;
+    }
+}
+@media (max-width:300px){
+    /* .all{
+        place-items: 1px;
+    } */
+    .btns{
+        column-gap: 10%;
+    }
+    .btns .delete,.btns .edit{
+        font-size: 13px;
+    }
+    
+}

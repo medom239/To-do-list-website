@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <title>TO-do list</title>
+        <meta charset="UTF-8">
+        <meta name="description" content="a to-do list application for managing tasks">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <!--font awesome tag-->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/all.min.css" integrity="sha512-ApSLB1Pd3/bZN8fWB/RG9YhN/7bd9Hkf3AGaE2mPfebjrxagjuBtx2GcgdqIlJkUzwylBo61r9Xa9NmgBI0swA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!--google fonts-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Beau+Rivage&family=Borel&family=Cookie&family=Diplomata&family=Lavishly+Yours&family=Yesteryear&display=swap" rel="stylesheet">
+    
+</head>
+    <body>
+        <div class="all">
+            <h1 class="main_title">To-Do App</h1>
+
+            <div class="state">
+                <p></p>
+                <div class="complete_counter"> </div>
+            </div>
+            
+            <div class="real_content">
+                <div class="add-task">
+                    <textarea name="add task" value="" placeholder="Add a new task..."></textarea>
+                    <button title="Add"><i class="fa-solid fa-plus"></i></button>
+                </div>
+                <div class="no-content">Enter Content First !</div>
+
+                <div class="tasks">
+                    
+                </div>
+            </div>
+        </div>
+
+        <div class="shortcut_btns">
+            <button class="menu_toggle"><i class="fa-solid fa-bars"></i></button>
+            <div class="btns">
+                <button class="finishALL">Finish all</button>
+                <button class="deleteALL">Delete all</button>
+                <button class="deleteCompleted">Delete completed</button>
+            </div>
+
+        </div>
+
+        <div class="themes">
+            <button class="themes_arrow"><i class="fa-solid fa-arrow-down-long"></i></button>
+            <div class="themes-btns">
+                <button class="sunSight">Theme 1</button>
+                <button class="evenning">Theme 2</button>
+                <button class="blueSky">Theme 3</button>
+                <button class="see">Theme 4</button>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+    <script src="main.js"></script>   
+    <script
+    src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@4.4.0/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+(function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="vlVuWH18NaEsCf729X90I";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+</script>
+</body>
+</html>
