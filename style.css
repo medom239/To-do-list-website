@@ -3,10 +3,14 @@
     margin:0;
     box-sizing: border-box;
 }
+/* html{
+    background-image: url("To-do\ backgrounds/sun rising.jpg");
+    background-repeat: repeat;
+} */
 body{
     min-height: 100vh;
-    background-repeat: no-repeat;
     background-size: cover;
+    background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
     transition: background 0.3s;
@@ -317,8 +321,9 @@ body{
 .remaining{
     position: absolute;
     top:40%;
-    left:-110%;
-    width: 100%;
+    left:-140%;
+    width: 130%;
+    text-align: right;
     z-index: 10;
     background-color: transparent;
     font-size: 20px;
@@ -527,7 +532,19 @@ body.seeTheme .themes_arrow{
     .btns{
         column-gap: 20%;
     }
-    
+    .shortcut_btns .menu_toggle{
+        font-size: 20px;
+    }
+    .themes-btns{
+        padding: 15px;
+    }
+    .themes_arrow{
+        padding:10px;
+    }
+    .btns .delete,.btns .edit{
+        font-size: 14.5px;
+        padding:5px;
+    }
 }
 @media (max-width:1221px){
     .all{
@@ -553,6 +570,9 @@ body.seeTheme .themes_arrow{
         top:20%;
         left:16.25%;
     }
+    .state{
+        height: 110px;
+    }
     
     .no-content{
         width:30%;
@@ -565,10 +585,10 @@ body.seeTheme .themes_arrow{
         top:15%;
         left:10%;
     }
-
+    
     .remaining{
         top:70%;
-        left:-110%;
+        left:-135%;
     }
     
     .shortcut_btns{
@@ -579,8 +599,8 @@ body.seeTheme .themes_arrow{
         
     }
     .no_tasksYet{
-        width:300px;
-        height:300px;
+        width:250px;
+        height:250px;
     }
 }
 @media (max-width:636px){
@@ -611,13 +631,13 @@ body.seeTheme .themes_arrow{
 @media (max-width:576px){
     .all{
         width: 90%;
-        top:15%;
+        top:10%;
         left:5%;
     }
     
     .remaining{
         top:70%;
-        left:-110%;
+        left:-135%;
     }
     
     .no-content{
@@ -628,6 +648,9 @@ body.seeTheme .themes_arrow{
         font-size: 22px;
         
     }
+    .state{
+        height: 100px;
+    }
     .state > p{
         font-size: 22px;
         
@@ -637,7 +660,7 @@ body.seeTheme .themes_arrow{
     }
     
     .btns .delete,.btns .edit{
-        padding:3px;
+        padding:5px;
         border-radius: 50%;
         border: none;
     }
@@ -656,10 +679,12 @@ body.seeTheme .themes_arrow{
         width:20%;
     }
     
+    
     .no-content{
-        width:40%;
+        width:45%;
         
     }
+    
     
 }
 
@@ -693,8 +718,11 @@ body.seeTheme .themes_arrow{
         padding-left:11.5%;
         width:80%;
     }
+    .btns .delete,.btns .edit{
+        padding:3px;
+    }
     .no-content{
-        width:45%;
+        width:47%;
         
     }
 }
@@ -702,7 +730,7 @@ body.seeTheme .themes_arrow{
 @media (max-width:348px){
     .all{
         width: 100%;
-        top:15%;
+        top:10%;
         left:0;
     }
     .state{
@@ -722,7 +750,9 @@ body.seeTheme .themes_arrow{
     }
     .remaining{
         font-size: 15px;
-        width:120%;
+        /* width:120%; */
+        left:-135%;
+        width: 130%;
     }
     
     .add-task textarea{
@@ -740,14 +770,12 @@ body.seeTheme .themes_arrow{
     }
 }
 @media (max-width:300px){
-    /* .all{
-        place-items: 1px;
-    } */
+    
     .btns{
         column-gap: 10%;
     }
     .btns .delete,.btns .edit{
-        font-size: 13px;
+        font-size: 14.5px;
     }
     
 }
