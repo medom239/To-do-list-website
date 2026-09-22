@@ -458,3 +458,14 @@ themes_arrow.addEventListener("click",() =>{
 // window.addEventListener("resize",(() => {
 //     console.log(innerWidth);
 // }))
+
+ /*ده عشان اغير الكلام المكتوب في التايتل لو المستخدم طلع من الموقع*/ 
+// let origintitle=document.title;                               
+// document.addEventListener("visibilitychange",() =>{
+//     if(document.hidden){
+//         document.title="come back here 👀"
+//     }else{
+//         document.title=origintitle;
+//     }
+    
+// })
