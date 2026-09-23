@@ -13,9 +13,9 @@ if(window.localStorage.getItem("alltasks")){
     sortingTasks();
 }
 if(localStorage.getItem("backgroundColor")){
-    document.body.style.backgroundImage=window.localStorage.getItem("backgroundColor");
+    document.body.style.setProperty("--bg",window.localStorage.getItem("backgroundColor"));
 }else{
-    document.body.style.backgroundImage="url('To-do\ backgrounds/sun rising.jpg')";
+    document.body.style.setProperty("--bg","url('To-do\ backgrounds/sun rising.jpg')");
 }
 
 function num_done(){
@@ -390,14 +390,15 @@ themes_btns.querySelector(".sunSight").classList.add("selected_theme");
 themes_btns.addEventListener("click",(e) => {
     let bodyTheme;
     if(e.target.closest(".sunSight")){
-        document.body.style.backgroundImage="url('To-do\ backgrounds/sun rising.jpg')";
+        document.body.style.setProperty("--bg","url('To-do\ backgrounds/sun rising.jpg')");
+        // document.body.style.backgroundImage="url('To-do\ backgrounds/sun rising.jpg')";
         document.body.classList.remove("evenningTheme","seeTheme","blueskyTheme");
         bodyTheme="";
         remaining.style.color="";
     }
     
     if(e.target.closest(".evenning")){
-        document.body.style.backgroundImage="url('To-do\ backgrounds/enhanced_night_city.png')";
+        document.body.style.setProperty("--bg","url('To-do\ backgrounds/enhanced_night_city.png')");
         document.body.classList.remove("seeTheme","blueskyTheme");
         document.body.classList.add("evenningTheme");
         bodyTheme="evenningTheme";
@@ -405,7 +406,7 @@ themes_btns.addEventListener("click",(e) => {
     }
     
     if(e.target.closest(".blueSky")){
-        document.body.style.backgroundImage="url('To-do\ backgrounds/pexels-pixabay-355465.jpg')";
+        document.body.style.setProperty("--bg","url('To-do\ backgrounds/pexels-pixabay-355465.jpg')");
         document.body.classList.remove("evenningTheme","seeTheme");
         document.body.classList.add("blueskyTheme");
         bodyTheme="blueskyTheme";
@@ -414,7 +415,7 @@ themes_btns.addEventListener("click",(e) => {
     }
     
     if(e.target.closest(".see")){
-        document.body.style.backgroundImage="url('To-do\ backgrounds/pexels-photo-30855449.avif')";
+        document.body.style.setProperty("--bg","url('To-do\ backgrounds/pexels-photo-30855449.avif')");
         document.body.classList.remove("evenningTheme","blueskyTheme");
         document.body.classList.add("seeTheme");
         bodyTheme="seeTheme";
@@ -434,7 +435,7 @@ themes_btns.addEventListener("click",(e) => {
     // console.log(document.body.classList[0]);
     localStorage.setItem("bodyTheme",bodyTheme);
     localStorage.setItem("selectedTheme",selected.classList[0]);
-    window.localStorage.setItem("backgroundColor",document.body.style.backgroundImage);
+    window.localStorage.setItem("backgroundColor",document.body.style.getPropertyValue("--bg"));
 })
 if(window.localStorage.getItem("backgroundColor")){
     Butns.forEach((btn) =>{

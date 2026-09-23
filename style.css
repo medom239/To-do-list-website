@@ -4,23 +4,34 @@
     box-sizing: border-box;
 }
 html{
-    overscroll-behavior: none;
+    overscroll-behavior:none ;
+    /* background-color: blue; */
 }
 body{
     min-height: 100vh;
+    /* background-attachment: fixed; */
+    overflow-x: hidden;
+    overscroll-behavior:none ;
+    
+    /* z-index: -1; */
+}
+body::before{
+    content:'';
+    position:fixed;
+    inset:0;
+    z-index: -1;
+    
+    background-image: var(--bg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
-    background-attachment: fixed;
     transition: background 0.3s;
-    overflow-x: hidden;
-    /* overscroll-behavior: none; */
 }
 .all{
     width:50%;
     border:2px rgba(255,255,255,0.2) solid ;
     border-radius: 10px;
-    min-height: 70vh;
+    min-height: 70vh;                               
     position:absolute;
     top:20%;
     left:25%;
@@ -588,6 +599,7 @@ body.seeTheme .themes_arrow{
 }
 
 @media (max-width:768px){
+    
     .all{
         width: 80%;
         top:15%;
