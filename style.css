@@ -7,7 +7,7 @@ html{
     overscroll-behavior:none ;
 }
 body{
-    position: relative;           /**/
+    position: relative;           
     min-height: 100vh;
     overflow-x: hidden;
     overscroll-behavior:none ;
@@ -16,11 +16,10 @@ body{
 body::before{
     content:'';
     position:fixed;            
-    /* inset:0; */
     top: 0;
     left: 0;
     width: 100%;
-    height: 110%;   /**/
+    height: 110%;   
     z-index: -1;
     
     background-image: var(--bg);
@@ -601,11 +600,17 @@ body.seeTheme .themes_arrow{
 }
 
 @media (max-width:768px){
+    body{
+        overflow: hidden;
+    }
     
     .all{
         width: 80%;
         top:15%;
         left:10%;
+        height: calc(99vh - 15%);
+        overflow: auto;
+        scrollbar-width: none;
     }
     
     .remaining{
@@ -655,6 +660,7 @@ body.seeTheme .themes_arrow{
         width: 90%;
         top:10%;
         left:5%;
+        height: calc(99vh - 10%);
     }
     
     .remaining{
@@ -715,6 +721,8 @@ body.seeTheme .themes_arrow{
         width: 98%;
         top:15%;
         left:1%;
+        height: calc(99vh - 15%);
+
     }
     .main_title{
         font-size: 28px;
@@ -759,6 +767,8 @@ body.seeTheme .themes_arrow{
         width: 100%;
         top:10%;
         left:0;
+        height: calc(99vh - 10%);
+
     }
     .state{
         height: 100px;
