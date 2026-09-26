@@ -352,31 +352,31 @@ shortcutBtns.addEventListener("click",(e) =>{
 })
 
 function sortingTasks(){   /*افهم الكود ده ولازم تراجع على الاراي سورتنج*/ 
-    alltasks.sort((a,b) =>{
-        return Number(a.complete) - Number(b.complete);
+alltasks.sort((a, b) => {
+        if(a.complete !== b.complete){
+            return Number(a.complete) - Number(b.complete);   // الأول: غير المكتمل قبل المكتمل
+        }
+        return b.id - a.id;   // الثاني: لو نفس الحالة، الأحدث (id أكبر) الأول
     });
     
     let currentOrder = [...tasks.children].map(el => el.querySelector(".tasktext")?.dataset.id);
     let desiredOrder = alltasks.map(obj => String(obj.id));
     
-    //لو الترتيب already صحيح، مفيش داعي تلمس أي حاجة خالص
     if(JSON.stringify(currentOrder) === JSON.stringify(desiredOrder)){
         window.localStorage.setItem("alltasks", JSON.stringify(alltasks));
         return;
     }
     
-    alltasks.forEach((obj) =>{
-        let textTask=tasks.querySelector(`.tasktext[data-id ="${obj.id}"]`);
-        
-        if (textTask) {
+    alltasks.forEach((obj) => {
+        let textTask = tasks.querySelector(`.tasktext[data-id="${obj.id}"]`);
+        if(textTask){
             let task = textTask.closest(".task");
             if(task.classList.contains("completed")) return;
             tasks.appendChild(task);
         }
-    })
+    });
     
-    
-    window.localStorage.setItem("alltasks",JSON.stringify(alltasks));
+    window.localStorage.setItem("alltasks", JSON.stringify(alltasks));
 }
 
     /* themes كود ال*/ 

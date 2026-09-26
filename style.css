@@ -608,7 +608,7 @@ body.seeTheme .themes_arrow{
         width: 80%;
         top:15%;
         left:10%;
-        height: calc(99vh - 15%);
+        height: calc(95vh - 15%);
         overflow: auto;
         scrollbar-width: none;
     }
@@ -660,7 +660,7 @@ body.seeTheme .themes_arrow{
         width: 90%;
         top:10%;
         left:5%;
-        height: calc(99vh - 10%);
+        height: calc(95vh - 10%);
     }
     
     .remaining{
@@ -719,9 +719,9 @@ body.seeTheme .themes_arrow{
 @media (max-width:426px){
     .all{
         width: 98%;
-        top:15%;
+        top:10%;
         left:1%;
-        height: calc(99vh - 15%);
+        height: calc(95vh - 10%);
 
     }
     .main_title{
@@ -767,7 +767,7 @@ body.seeTheme .themes_arrow{
         width: 100%;
         top:10%;
         left:0;
-        height: calc(99vh - 10%);
+        height: calc(95vh - 10%);
 
     }
     .state{
