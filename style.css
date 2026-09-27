@@ -1,16 +1,16 @@
 *{
     padding:0;
     margin:0;
-    box-sizing: border-box;
+    box-sizing: border-box
 }
 html{
-    overscroll-behavior:none ;
+    overscroll-behavior:none 
 }
 body{
     position: relative;           
     min-height: 100vh;
     overflow-x: hidden;
-    overscroll-behavior:none ;
+    overscroll-behavior:none 
     
 }
 body::before{
@@ -26,7 +26,7 @@ body::before{
     background-size: cover;
     background-repeat: repeat-y; /**/
     background-position: center;
-    transition: background 0.3s;
+    transition: background 0.3s
 }
 .all{
     width:50%;
@@ -38,7 +38,7 @@ body::before{
     left:25%;
     box-shadow: 0 0 15px  rgba(0,0,0,1);
     backdrop-filter: blur(5px);
-    place-items: center;
+    place-items: center
 }
 
 .main_title{
@@ -47,25 +47,25 @@ body::before{
     font-style:italic;
     color:rgb(220, 253, 193);
     text-align: center;   /* <== السطر ده مش مهم */
-    padding-top:10px;
+    padding-top:10px
 }
 .state{
     width:90%;
     border:3px rgba(255,255,255,0.2) solid;
     border-radius: 10px;
-    height:120px;
+    height:120px
 }
 title{
-    color: blue;
+    color: blue
 }
 .real_content{
-    width:90%;
+    width:90%
 }
 .add-task{
     display: flex;
     gap:3%;
     margin-top:40px;
-    width:100%;
+    width:100%
     
 }
 .add-task textarea{
@@ -84,11 +84,11 @@ title{
     box-shadow: 5px 5px 10px rgba(0,0,0,0.3);
     transition: box-shadow 0.3s;
     position: relative;
-    z-index: 10;
+    z-index: 10
 }
 .add-task textarea:focus,
 .add-task textarea:hover{
-    box-shadow: none;
+    box-shadow: none
 }
 
 .add-task button{
@@ -99,10 +99,10 @@ title{
     color:rgba(255,255,255,0.7);
     cursor:pointer;
     font-size: 20px;
-    transition: background-color 0.3s ;
+    transition: background-color 0.3s 
 }
 .add-task button:hover{
-    background-color: red;
+    background-color: red
 }
 .no-content{
     position: absolute;
@@ -117,16 +117,16 @@ title{
     z-index: 8;
     visibility: hidden;
     opacity: 0;
-    transition: transform 0.3s,opacity 1s;
+    transition: transform 0.3s,opacity 1s
 }
 .visible{
     opacity:1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0)
 }
 .tasks{
     margin-top:50px;
-    width:100%;
+    width:100%
     
 }
 .task{
@@ -137,13 +137,13 @@ title{
     z-index: 2;
     background-color: rgba(255,255,255,0.1);
     border-radius: 8px;
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px)
     
 }
 @property --a{
     syntax: "<angle>";
     inherits: false;
-    initial-value: 0deg;
+    initial-value: 0deg
 }
 .task::before{
     visibility: hidden;
@@ -170,7 +170,7 @@ title{
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
     
-    -webkit-mask-composite: xor;
+    -webkit-mask-composite: xor
 }
 @keyframes glowing{
     0% {
@@ -187,7 +187,7 @@ title{
     animation-iteration-count:infinite;
     animation-timing-function: ease-out;
     animation-direction: normal;
-    animation-play-state: running;
+    animation-play-state: running
 } 
 
 .tasks .tasktext{
@@ -205,7 +205,7 @@ title{
     height:40px;
     padding-top:8px; 
     padding-left:10%; 
-    scrollbar-width: none; /*ده عشان اخفي السكرول بتاع تيكست اريا من متصفح فايرفوكس*/
+    scrollbar-width: none /*ده عشان اخفي السكرول بتاع تيكست اريا من متصفح فايرفوكس*/
 }
 .tasks .tasktext::-webkit-scrollbar{   /* ده عشان اخفي السكرول من متصفح ايدج و كرووم*/
     display: none;
@@ -222,10 +222,10 @@ title{
     width:24px;
     height: 24px;
     cursor: pointer;
-    transition:background-color 0.3s;
+    transition:background-color 0.3s
 }
 .done:checked{
-    background-color: rgb(76, 221, 76);
+    background-color: rgb(76, 221, 76)
 }
 .done:checked::before{
     content:"\2713";
@@ -233,7 +233,7 @@ title{
     justify-content: center;
     align-items: center;
     font-size: 17px;
-    color:white;
+    color:white
 }
 
 
@@ -245,7 +245,7 @@ title{
     border-radius: 0 8px 8px 0;
     display: flex;
     align-items: center;
-    column-gap: 30%;
+    column-gap: 30%
 }
 
 .btns .delete,.btns .edit{
@@ -254,57 +254,57 @@ title{
     border-width:1px;
     border-color:rgba(0,0,0,0.3);
     cursor: pointer;
-    transition: background-color 0.3s,color 0.3s;
+    transition: background-color 0.3s,color 0.3s
 }
 .btns .delete{
     background-color: rgba(255,0,0,0.2);
-    color:rgba(255,255,255,0.8);
+    color:rgba(255,255,255,0.8)
 }
 .btns .delete:hover{
     background-color: rgba(255,0,0,1);
-    color:white;
+    color:white
 }
 .btns .edit{
     background-color: rgba(55,100, 130, 0.5);
-    color:rgba(255,255,255,0.8);
+    color:rgba(255,255,255,0.8)
     
 }
 .btns .edit:hover{
     background-color: rgba(55,100, 130, 1);
-    color:rgba(255,255,255,1);
+    color:rgba(255,255,255,1)
 }
 
 .doneTemplate{
     text-decoration: line-through;
-    color:rgba(255,228,196,0.5) !important;
+    color:rgba(255,228,196,0.5) !important
 }
 
 .state{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding:0 4%;
+    padding:0 4%
 }
 .state > p{
     font-size: 25px;
-    color:#F9F0E0;
+    color:#F9F0E0
     
 }
 .state > p span{
     /* color:; */
     font-size: 34px;
-    font-weight: 900;
+    font-weight: 900
 }
 .complete_counter{
     background-image: radial-gradient( #29323c 0%, #1f73cd 100%);    
     border-radius: 50%;
     padding:30px;
-    position: relative;
+    position: relative
     
 }
 .complete_counter p{
     pointer-events: none;
-    user-select: none;
+    user-select: none
 }
 .complete_counter::before{
     opacity: 0;
@@ -316,26 +316,26 @@ title{
     z-index: -1;
     background-size: 300%;
     filter: blur(1px);
-    transition:opacity 0.5s;
+    transition:opacity 0.5s
 }
 @keyframes glowing2{
     0%{
-        background-position: 0% 0%;
+        background-position: 0% 0%
     }
     50%{
-        background-position: 100% 100%;
+        background-position: 100% 100%
     }
     100%{
-        background-position: 0% 0%;
+        background-position: 0% 0%
     }
 }
 .complete_counter.allDone::before{
     opacity: 1;
-    animation:glowing2 3s linear 1 ;
+    animation:glowing2 3s linear 1 
 }
 .complete_counter P{
     font-size: 25px;
-    color:#F9F0E0;
+    color:#F9F0E0
     
 }
 .remaining{
@@ -349,11 +349,11 @@ title{
     font-size: 20px;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.7s,visibility 0.7s;
+    transition: opacity 0.7s,visibility 0.7s
 }
 .complete_counter:hover .remaining{
     opacity: 1;
-    visibility: visible;
+    visibility: visible
     
 }
 
@@ -361,14 +361,14 @@ title{
     width:400px;
     height: 400px;
     display: block;
-    margin: 0 auto;
+    margin: 0 auto
 }
 
 .shortcut_btns{
     position: fixed;
     top:30%;
     right:0;
-    border-radius: 10px 10px 0 0;
+    border-radius: 10px 10px 0 0
     
 }
 .shortcut_btns .menu_toggle{
@@ -381,7 +381,7 @@ title{
     outline: none;
     border: none;
     background-color: #501D54;
-    color:#E4D329;
+    color:#E4D329
 }
 .shortcut_btns .btns{
     display: flex;
@@ -389,7 +389,7 @@ title{
     width:100%;
     border-radius: 10px;
     background-color: #501D54;
-    visibility: hidden;
+    visibility: hidden
 }
 .shortcut_btns .btns button{
     padding:5px 10px 5px 10px;
@@ -400,26 +400,26 @@ title{
     border:none;
     background-color: #501D54;
     border-radius: 10px;
-    transition: color 0.5s,background-color 0.2s;
+    transition: color 0.5s,background-color 0.2s
 }
 .shortcut_btns .btns button.finishALL:hover{
-    background-color: rgb(24, 173, 24) !important;
+    background-color: rgb(24, 173, 24) !important
 }
 .shortcut_btns .btns button.deleteALL:hover{
-    background-color: rgb(255, 19, 19) !important;
+    background-color: rgb(255, 19, 19) !important
 }
 .shortcut_btns .btns button.deleteCompleted:hover{
-    background-color: rgb(191, 75, 75) !important;
+    background-color: rgb(191, 75, 75) !important
 }
 
 .Btn_seen{
-    visibility: visible !important;
+    visibility: visible !important
 }
 
 .themes{
     position: fixed;
     top:0;
-    left:3%;
+    left:3%
 }
 .themes_arrow{
     position: relative;   /*السطر ده اتحط عشان z-index */
@@ -431,7 +431,7 @@ title{
     border-radius: 0 0 10px 10px;
     cursor: pointer;
     padding:5px;
-    z-index: 3;
+    z-index: 3
 }
 /* #F47F6B */
 .themes-btns{
@@ -445,11 +445,11 @@ title{
     visibility: hidden;
     transform: translateY(-150%);
     transition: transform 0.3s,visibility 0.3s;
-    z-index: -2;
+    z-index: -2
 }
 .themes-btnsAppeare{
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0)
     
 }
 .themes-btns button{
@@ -462,7 +462,7 @@ title{
     padding: 5px 10px 5px 10px;
     position: relative;
     z-index: 1;
-    overflow: hidden;
+    overflow: hidden
 }
 .themes-btns button:before{
     content:'';
@@ -474,7 +474,7 @@ title{
     height: 100%;
     z-index: -1;
     border-radius: 10px 0 0 10px;
-    transition: width 0.3s;
+    transition: width 0.3s
 }
 .themes-btns button:after{
     content:'';
@@ -486,34 +486,34 @@ title{
     background-color: #F5853B;
     border-radius: 0 10px 10px 0;
     z-index: -1;
-    transition: width 0.3s;
+    transition: width 0.3s
     
 }
 .themes-btns .evenning:after,
 .themes-btns .evenning:before{
-    background-color: #0D0F11;
+    background-color: #0D0F11
     
 }
 .themes-btns .blueSky:after,
 .themes-btns .blueSky:before{
-    background-color: #0A428C;
+    background-color: #0A428C
     
 }
 .themes-btns .see:after,
 .themes-btns .see:before{
-    background-color: #B4CCE4;
+    background-color: #B4CCE4
     
 }
 
 .themes-btns button:hover:before,
 .themes-btns button:hover:after{
     
-    width:50%;
+    width:50%
 }
 
 .selected_theme{
     box-shadow: 0 1px 10px greenyellow ;
-    border-color: rgb(32, 85, 218);
+    border-color: rgb(32, 85, 218)
 }
 
 body.evenningTheme .shortcut_btns .btns button,
@@ -521,7 +521,7 @@ body.evenningTheme .menu_toggle,
 body.evenningTheme .shortcut_btns .btns,
 body.evenningTheme .themes-btns,
 body.evenningTheme .themes_arrow{
-    background-color: black;
+    background-color: black
 }
 
 body.blueskyTheme .shortcut_btns .btns button,
@@ -529,7 +529,7 @@ body.blueskyTheme .menu_toggle,
 body.blueskyTheme .shortcut_btns .btns,
 body.blueskyTheme .themes-btns,
 body.blueskyTheme .themes_arrow{
-    background-color: rgb(35, 35, 135);
+    background-color: rgb(35, 35, 135)
     
 }
 
@@ -538,49 +538,49 @@ body.seeTheme .menu_toggle,
 body.seeTheme .shortcut_btns .btns,
 body.seeTheme .themes-btns,
 body.seeTheme .themes_arrow{
-    background-color: rgb(110, 187, 223);
+    background-color: rgb(110, 187, 223)
     
 }
 
 .evenningTheme .remaining,
 .blueskyTheme .remaining {
-    color: white;
+    color: white
 }
 
 /*media query*/
 @media (max-width:1400px){
     .btns{
-        column-gap: 20%;
+        column-gap: 20%
     }
     .shortcut_btns .menu_toggle{
-        font-size: 20px;
+        font-size: 20px
     }
     .themes-btns{
-        padding: 15px;
+        padding: 15px
     }
     .themes_arrow{
-        padding:10px;
+        padding:10px
     }
     .btns .delete,.btns .edit{
         font-size: 14.5px;
-        padding:5px;
+        padding:5px
     }
 }
 @media (max-width:1221px){
     .all{
         width: 55%;
-        left:22.5%;
+        left:22.5%
     }
     
     .no-content{
-        width:28%;
+        width:28%
     }
 }
 @media (max-width:995px){
     .all{
         width: 65%;
         top:20%;
-        left:17.5%;
+        left:17.5%
     }
     
 }
@@ -588,20 +588,20 @@ body.seeTheme .themes_arrow{
     .all{
         width: 67.5%;
         top:20%;
-        left:16.25%;
+        left:16.25%
     }
     .state{
-        height: 110px;
+        height: 110px
     }
     
     .no-content{
-        width:30%;
+        width:30%
     }
 }
 
 @media (max-width:768px){
     body{
-        overflow: hidden;
+        overflow: hidden
     }
     
     .all{
@@ -610,39 +610,39 @@ body.seeTheme .themes_arrow{
         left:10%;
         height: calc(95vh - 15%);
         overflow: auto;
-        scrollbar-width: none;
+        scrollbar-width: none
     }
     
     .remaining{
         top:70%;
-        left:-135%;
+        left:-135%
     }
     
     .shortcut_btns{
         position: fixed;
         top:0%;
         right:0;
-        border-radius: 10px 10px 0 0;
+        border-radius: 10px 10px 0 0
         
     }
     .no_tasksYet{
         width:250px;
-        height:250px;
+        height:250px
     }
 }
 @media (max-width:636px){
     .all{
         width: 84%;
         top:15%;
-        left:8%;
+        left:8%
     }
     
     .no-content{
-        width:32%;
+        width:32%
     }
     
     .btns{
-        column-gap: 16%;
+        column-gap: 16%
     }
 }
 
@@ -650,7 +650,7 @@ body.seeTheme .themes_arrow{
     .all{
         width: 88%;
         top:15%;
-        left:6%;
+        left:6%
     }
     
 }
@@ -660,60 +660,74 @@ body.seeTheme .themes_arrow{
         width: 90%;
         top:10%;
         left:5%;
-        height: calc(95vh - 10%);
+        height: calc(95vh - 10%)
     }
     
     .remaining{
         top:70%;
-        left:-135%;
+        left:-135%
     }
     
     .no-content{
-        width:35%;
+        width:35%
     }
     
     .complete_counter P{
-        font-size: 22px;
+        font-size: 22px
         
     }
     .state{
-        height: 100px;
+        height: 100px
     }
     .state > p{
-        font-size: 22px;
+        font-size: 22px
         
     }
     .remaining{
-        font-size: 19px;
+        font-size: 19px
     }
     
     .btns .delete,.btns .edit{
         padding:5px;
         border-radius: 50%;
-        border: none;
+        border: none
     }
 }
 
 @media (max-width:486px){
     .add-task textarea{
-        padding:2.1% 2%;
+        padding:2.1% 2%
     }
     .tasks .tasktext{
         padding-top:6px; 
         padding-left:11%;
-        width:80%;
+        width:80%
     }
     .btns{
-        width:20%;
+        width:20%
     }
     
     
     .no-content{
-        width:45%;
+        width:45%
         
     }
     
     
+}
+@media (max-width:455px) and (min-width:426px){
+    .complete_counter P{
+        font-size: 20.5px
+        
+    }
+    .complete_counter {
+        padding: 25px
+    }
+    
+    .state > p{
+        font-size: 20.5px
+        
+    }
 }
 
 @media (max-width:426px){
@@ -721,29 +735,32 @@ body.seeTheme .themes_arrow{
         width: 98%;
         top:10%;
         left:1%;
-        height: calc(95vh - 10%);
-
+        height: calc(95vh - 10%)
+        
     }
     .main_title{
-        font-size: 28px;
+        font-size: 28px
     }
     
+    .complete_counter {
+        padding: 26px
+    }
     .complete_counter P{
-        font-size: 19px;
+        font-size: 18px
         
     }
     .state > p{
-        font-size: 19px;
+        font-size: 18px
         
     }
     .remaining{
-        font-size: 18px;
+        font-size: 18px
     }
     .add-task textarea{
-        padding:2.5% 2%;
+        padding:2.5% 2%
     }
     .task{
-        margin: 6% 0;
+        margin: 6% 0
         
     }
     
@@ -751,14 +768,14 @@ body.seeTheme .themes_arrow{
         padding-top:6px; 
         padding-left:11.5%;
         width:80%;
-        font-size: 19px;
+        font-size: 19px
     }
     .btns .delete,.btns .edit{
-        padding:3px;
+        padding:3px
     }
     .no-content{
         width:47%;
-        font-size: 15px;
+        font-size: 15px
     }
 }
 
@@ -767,52 +784,70 @@ body.seeTheme .themes_arrow{
         width: 100%;
         top:10%;
         left:0;
-        height: calc(95vh - 10%);
+        height: calc(95vh - 10%)
 
     }
     .state{
-        height: 100px;
+        height: 100px
     }
     .complete_counter{
-        padding:20px;
+        padding:20px
         
     }
     .complete_counter P{
-        font-size: 16px;
+        font-size: 16px
         
     }
     .state > p{
-        font-size: 16px;
+        font-size: 16px
         
     }
     .remaining{
         font-size: 15px;
-        /* width:120%; */
         left:-135%;
-        width: 130%;
+        width: 130%
     }
     
     .add-task textarea{
         font-size:18px ;
-        padding:3% 2%;
+        padding:3% 2%
     }
     .tasks .tasktext{
         font-size:18px ;
-        padding-left:12%;
+        padding-left:12%
     }
     
     .no-content{
         width:52%;
-        font-size: 14px;
+        font-size: 14px
     }
 }
 @media (max-width:300px){
     
     .btns{
-        column-gap: 10%;
+        column-gap: 10%
     }
     .btns .delete,.btns .edit{
-        font-size: 14.5px;
+        font-size: 14.5px
     }
     
+}
+@media (max-width:277px){
+    
+    .btns .delete,.btns .edit{
+        font-size: 14px
+    }
+    
+    .complete_counter{
+        padding:15px
+        
+    }
+    .complete_counter P{
+        font-size: 14px
+        
+    }
+    .state > p{
+        font-size: 14px
+        
+    }
 }
