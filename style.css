@@ -831,6 +831,13 @@ body.seeTheme .themes_arrow{
         font-size: 14.5px
     }
     
+    .complete_counter{
+        padding:16px
+    }
+
+    .state{
+    padding:0 2%
+}
 }
 @media (max-width:277px){
     
@@ -838,6 +845,9 @@ body.seeTheme .themes_arrow{
         font-size: 14px
     }
     
+    .state{
+    padding:0 4%
+    }
     .complete_counter{
         padding:15px
         
